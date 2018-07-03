@@ -42,11 +42,13 @@ x = onhotencoder.fit_transform(x).toarray()
 LabelEncoder_y = LabelEncoder()
 y = LabelEncoder_y.fit_transform(y)
 
+#split the dataset into training set and test set
 #the following split the data set into training and testing, testing 20%
 from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
 
 #feature scaling
+#this part MOST OF THE TIME is included in the ML library
 from sklearn.preprocessing import StandardScaler
 sc_x = StandardScaler()
 #need to fit it and then transform it, but if fit the x_train it will then fit the x_test
