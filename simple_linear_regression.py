@@ -32,15 +32,33 @@ x_test = sc_x.transform(x_test)
 from sklearn.linear_model import LinearRegression
 #create the object
 regressor = LinearRegression()
+#fit it to the training set
+regressor.fit(x_train, y_train)
+
+#predict the test set result
+y_pred = regressor.predict(x_test)
+
+#visualizing result
+#the following is the dot graph
+plt.scatter(x_train, y_train, color = 'red')
+#plot the line of the prediction
+plt.plot(x_train, regressor.predict(x_train), color = 'blue')
+plt.title('Salary vs. Experience (Training Set)')
+plt.xlabel('Years of Experience')
+plt.ylabel(('Salary'))
+#show the result
+plt.show()
 
 
-
-
-
-
-
-
-
+#visualizing the test set result
+plt.scatter(x_test, y_test, color = 'red')
+#plot the line of the prediction
+plt.plot(x_train, regressor.predict(x_train), color = 'blue')
+plt.title('Salary vs. Experience (Test Set)')
+plt.xlabel('Years of Experience')
+plt.ylabel(('Salary'))
+#show the result
+plt.show()
 
 
 
