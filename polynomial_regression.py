@@ -24,12 +24,21 @@ linear_regressor = LinearRegression()
 linear_regressor.fit(x, y)
 
 #fitting polynomial regression to the dataset
+from sklearn.preprocessing import PolynomialFeatures
+#degree means the power of the variable
+poly_regressor = PolynomialFeatures(degree = 2)
+#need to fit and then transform because it will transform the x
+x_poly = poly_regressor.fit_transform(x)
+linear_regressor_2 = LinearRegression()
+linear_regressor_2.fit(x_poly, y)
 
-
-
-
-
-
+#visualizing the linear regression results
+plt.scatter(x, y, color='red')
+plt.plot(x, linear_regressor.predict(x), color='blue')
+plt.title('Truth or Bluff (Linear Regression)')
+plt.xlabel('Position Level')
+plt.ylabel('Salary')
+plt.show()
 
 
 
