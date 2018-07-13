@@ -11,8 +11,11 @@ dataset = pd.read_csv('Position_Salaries.csv')
 x = dataset.iloc[:, 1:2].values #the upper bound is not included. we ALWAYS want x to be matrix
 y = dataset.iloc[:, 2].values
 
-#don't need to split the dataset because the dataset is really small...
-
+#split the dataset into training set and test set
+#the following split the data set into training and testing, testing 20%
+'''from sklearn.model_selection import train_test_split
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
+'''
 '''
 #feature scaling
 we don't need feature scaling because polynomial 
